@@ -39,4 +39,5 @@ Welcome to the **All Page** project, featuring an advanced search bar and drawer
   - **Rectangular Drawer:** Now featuring an **advanced app selector** for more personalized control.
   - **Circular Drawer:** Use the **circular drawer** to cycle through different themes for the interface.
   - **Music Player:** Integrated music player for seamless media control.
+  - **Wallpaper Based Themes:** Special themes now includes wallpapers with them. 
   - **Clock & Dark Mode Switch:** Still easily accessible in the UI for a balanced experience.
