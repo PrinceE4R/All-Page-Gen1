@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+#bubble-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bubble {
+    position: absolute;
+    cursor: grab;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    z-index: 1;
+    user-select: none;
+}
+
+.bubble:active {
+    cursor: grabbing;
+}
+
+.bubble img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+.bubble:hover {
+    transform: scale(1.1);
+}
+
+.input-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 270px;
+    z-index: 1000;
+}
+
+.input {
+    width: 100%;
+    height: 60px;
+    padding: 12px;
+    font-size: 18px;
+    font-family: "Courier New", monospace;
+    color: #000;
+    background-color: #fff;
+    border: 4px solid #000;
+    border-radius: 0;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 8px 8px 0 #000;
+}
+
+.input::placeholder {
+    color: #888;
+}
+
+.input:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 #000;
+}
+
+.input:focus {
+    background-color: #010101;
+    color: #fff;
+    border-color: #d6d9dd;
+}
+
+.input:focus::placeholder {
+    color: #fff;
+}
+
+#suggestions-container {
+    font-size: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #000;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+#suggestions-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for WebKit browsers */
+  }
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-item.active {
+    background-color: #e0e0e0;
+}
+.suggestion-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Adds a subtle separator */
+  }
+
+.toggle-switch {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 50px;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+}
+
+.checkbox {
+    position: absolute;
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+    background-color: var(--light);
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+    transform: translateX(50px);
+    background-color: var(--dark);
+    box-shadow: none;
+}
+
+body.light-mode {
+    background-color: #ffffff;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .input {
+    background-color: #1a1a1a;
+    color: #fff;
+    border-color: #fff;
+}
+
+body.dark-mode .input::placeholder {
+    color: #aaa;
+}
+
+body.dark-mode .input:focus {
+    background-color: #fff;
+    color: #000;
+    border-color: #1a1a1a;
+}
+
+body.dark-mode .input:focus::placeholder {
+    color: #000;
+}
+
+body.dark-mode #suggestions-container {
+    background-color: #1a1a1a;
+    border-color: #fff;
+}
+
+body.dark-mode .suggestion-item {
+    color: #fff;
+}
+
+body.dark-mode .suggestion-item:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .suggestion-item.active {
+    background-color: #3a3a3a;
+}
